@@ -40,7 +40,6 @@ module.exports = {
     clean: true,
   },
   externals: {
-    sqlite3: 'commonjs sqlite3',
     react: 'react',
     'react-dom': 'react-dom'
   },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { getMixtapeNFTs } from 'nft-fetcher';
+import getMixtapeNFTs from 'nft-fetcher';
 import styles from './MixtapeSearch.module.css';
 import { CID } from 'multiformats/cid'; 
 

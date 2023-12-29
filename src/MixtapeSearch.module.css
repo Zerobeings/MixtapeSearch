@@ -11,6 +11,13 @@
     position: relative;
 }
 
+.networkImage {
+    margin-left: 10px;
+    margin-top: 12px;
+    margin-right: 0px;
+    width: 30px;
+}
+
 .searchBar {
     height: 100%;
     width: 100%;
@@ -18,11 +25,7 @@
     font-size: 20px;
     border-radius: 12px;
     background-color: transparent;
-    background-image: url('network/eth.png');
-    background-position: 10px 12px; 
-    background-repeat: no-repeat;
-    background-size: 30px;
-    padding: 12px 20px 12px 50px;
+    padding: 12px 20px 12px 10px;
     align-items: center;
     justify-self: center;
     border: none;
@@ -36,11 +39,7 @@
     font-size: 20px;
     border-radius: 12px;
     background-color: transparent;
-    background-image: url('network/matic.png');
-    background-position: 10px 12px; 
-    background-repeat: no-repeat;
-    background-size: 30px;
-    padding: 12px 20px 12px 50px;
+    padding: 12px 20px 12px 10px;
     align-items: center;
     justify-self: center;
     border: none;
@@ -141,11 +140,7 @@ outline: none;
     font-size: 20px;
     border-radius: 12px;
     background-color: transparent;
-    background-image: url('network/eth.png');
-    background-position: 10px 12px; 
-    background-repeat: no-repeat;
-    background-size: 30px;
-    padding: 12px 20px 12px 50px;
+    padding: 12px 20px 12px 10px;
     align-items: center;
     justify-self: center;
     border: none;
@@ -159,11 +154,7 @@ outline: none;
     font-size: 20px;
     border-radius: 12px;
     background-color: transparent;
-    background-image: url('network/matic.png');
-    background-position: 10px 12px; 
-    background-repeat: no-repeat;
-    background-size: 30px;
-    padding: 12px 20px 12px 50px;
+    padding: 12px 20px 12px 10px;
     align-items: center;
     justify-self: center;
     border: none;

@@ -37,6 +37,7 @@ module.exports = {
     publicPath: '/dist/',
     umdNamedDefine: true,
     globalObject: 'this',
+    clean: true,
   },
   externals: {
     sqlite3: 'commonjs sqlite3',

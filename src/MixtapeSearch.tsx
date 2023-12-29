@@ -220,6 +220,26 @@ const MixtapeSearch = ({
     <div>
         <div className={`${styles.searchBarContainer} ${classNames.searchBarContainer || ""}`} 
         style={style.searchBarContainer && darkMode ? darkMode.searchBarContainer : style.searchBarContainer}>
+         {network === "ethereum" ? (
+                <img 
+                    className={styles.networkImage}
+                    src="https://lib.locatia.app/network-images/eth.png"
+                    alt="ethereum"
+                    width={30} 
+                    height={30}
+                    loading="lazy"
+                />
+            ) : network === "polygon" && (
+                <img 
+                    className={styles.networkImage}
+                    src="https://lib.locatia.app/network-images/matic.png"
+                    alt="polygon"
+                    width={30} 
+                    height={30}
+                    loading="lazy"
+                />
+            )    
+            }
             <input
                 style={style.searchBar && darkMode ? darkMode.searchBar : style.searchBar}
                 className={`${network === "ethereum" ? styles.searchBar : styles.searchBarMatic} ${styles.searchBar || ""}`}

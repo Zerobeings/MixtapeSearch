@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "target": "es2022",
+    "module": "umd",
+    "esModuleInterop": true,
+    "declaration": true,
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "include": [
+    "next-env.d.ts",
+    "./src/**/*",
+    "*.d.ts",
+    "*.tsx",
+    "*.ts"
+  ],
+    "exclude": ["node_modules"],
+    "peerDependencies": {
+      "react": "17.0.2",
+      "react-dom": "17.0.2",
+      "nft-fetcher": "^1.0.3"
+    }
+  }

@@ -8,6 +8,12 @@ MixtapeSearch is a React component that provides a search bar for fetching and d
 yarn add mixtape-search
 ```
 
+mixtape-search has two peer dependencies: `react` and `react-dom`. Make sure they are installed in your project.
+
+```bash
+yarn add react react-dom
+```
+
 ## Usage
 
 Create a component in your project and import the `MixtapeSearch` component from the `mixtape-search` package.
@@ -129,3 +135,34 @@ If a collection does not appear it has not been indexed yet. To request a collec
 ## Network Support
 
 The component supports multiple blockchain networks. The active network can be set using the `activeNetwork` prop. The default network is 'ethereum'.
+
+## Next js configuration
+
+Step 1: Update next.config.js
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  basePath: "",
+  webpack5: true,
+  webpack: config => {
+    config.resolve.fallback = {
+      fs: false,
+    };
+    return config;
+  }
+};
+
+module.exports = nextConfig;
+```
+
+Step 2: Under the `public` folder create a folder named `db` and add the `sql-wasm-595817d88d82727f463bc4b73e0a64cf.wasm` file to it. You can download the file from [here](https://github.com/Zerobeings/nft-indexer/tree/main/nextjs-db-file) or in the src file of this package.
+
+Step 3: Create an nft-fetcher.d.ts file under the `typings` folder of your project and the following declaration.
+```javascript
+declare module 'nft-fetcher';
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

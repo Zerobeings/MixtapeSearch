@@ -1,11 +1,16 @@
 {
   "name": "mixtape-search",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "NFT searchbard for nft-fetcher",
   "license": "MIT",
   "main": "dist/mixtapesearch.js",
   "author": "h0ward.eth",
   "types": "src/declarations.d.ts",
+  "homepage": "https://github.com/Zerobeings/MixtapeSearch#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zerobeings/MixtapeSearch.git"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",

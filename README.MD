@@ -2,6 +2,16 @@
 
 MixtapeSearch is a React component that provides a search bar for fetching and displaying NFTs from different networks. It uses the `nft-fetcher` library to fetch NFTs based on the user's search input.
 
+## Quick Start Method
+
+The quickest way to get started is to use the nextjs mixtape-search-template repository.
+
+```bash
+git clone https://github.com/Zerobeings/mixtape-search-template.git
+cd mixtape-search-template
+yarn install
+```
+
 ## Installation
 
 ```bash

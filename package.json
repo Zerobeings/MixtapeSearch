@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "NFT searchbard for nft-fetcher",
   "license": "MIT",
-  "main": "dist/MixtapeSearch.js",
+  "main": "dist/mixtapesearch.js",
   "author": "h0ward.eth",
   "types": "src/declarations.d.ts",
   "scripts": {
@@ -18,7 +18,8 @@
     "nft-fetcher": "^1.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "stream-browserify": "^3.0.0"
+    "stream-browserify": "^3.0.0",
+    "webpack-bundle-analyzer": "^4.10.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.4",

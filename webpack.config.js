@@ -1,7 +1,8 @@
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: './src/MixtapeSearch.tsx',
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
@@ -31,7 +32,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'MixtapeSearch.js',
+    filename: 'mixtapesearch.js',
     library: 'MixtapeSearch',
     libraryTarget: 'umd',
     publicPath: '/dist/',
@@ -43,4 +44,7 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom'
   },
+  plugins: [
+    new BundleAnalyzerPlugin(),
+  ],
 };

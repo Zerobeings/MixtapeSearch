@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import getMixtapeNFTs from 'nft-fetcher';
-import styles from './MixtapeSearch.module.css';
+import styles from './index.module.css';
 import { CID } from 'multiformats/cid'; 
 
 interface SearchBarProps {
@@ -215,6 +215,8 @@ const MixtapeSearch = ({
         fetchCollections();
    
     }, [network, collectionCache]);
+
+    console.log(collections);
     
   return (
     <div>
@@ -272,7 +274,7 @@ const MixtapeSearch = ({
         >
           {collections && collections
               .filter((collection) =>
-              {collection.name && collection.name.toLowerCase().includes(contractAddress.toLowerCase())}
+              {return collection.name && collection.name.toLowerCase().includes(contractAddress.toLowerCase())}
               )
               .slice(0, 6)
               .map((collection, index) => (

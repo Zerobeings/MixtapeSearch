@@ -168,9 +168,9 @@ module.exports = nextConfig;
 
 Step 2: Under the `public` folder create a folder named `db` and add the `sql-wasm-595817d88d82727f463bc4b73e0a64cf.wasm` file to it. You can download the file from [here](https://github.com/Zerobeings/nft-indexer/tree/main/nextjs-db-file) or in the src file of this package.
 
-Step 3: Create an nft-fetcher.d.ts file under the `typings` folder of your project and the following declaration.
+Step 3: Create an mixtape-search.d.ts file under the `typings` folder of your project and the following declaration.
 ```javascript
-declare module 'nft-fetcher';
+declare module 'mixtape-search';
 ```
 
 ## License

@@ -135,9 +135,17 @@ const MixtapeSearch = ({
         setContractAddress('');
         setShowSuggestions(false);
         console.log('Fetching NFTs...');
-        getMixtapeNFTs(search, network)
+        getMixtapeNFTs(search, network,
+                {
+                    limit,
+                    start,
+                    where,
+                    select,
+                    dbURL,
+                }
+            )
             .then((results:any) => {
-                console.log(results);
+                console.log('NFTs fetched!');
                 if (onNFTsFetched) {
                     onNFTsFetched(results);
                 }
@@ -216,7 +224,6 @@ const MixtapeSearch = ({
    
     }, [network, collectionCache]);
 
-    console.log(collections);
     
   return (
     <div>

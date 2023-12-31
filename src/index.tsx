@@ -76,12 +76,12 @@ const MixtapeSearch = ({
         suggestionLogo: "",
     }}:SearchBarProps) => {
   const [contractAddress, setContractAddress] = useState<string>('');
-  const [network, setNetwork] = useState<string>('ethereum');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
   const [collections, setCollections] = useState<Collection[]>([]);
   const [collectionCache, setCollectionCache] = useState<Collections>({});
   const darkTheme = useMemo(() => theme === 'dark', [theme]);
+  const [lastUsedContractAddress, setLastUsedContractAddress] = useState<string>('');
   onNFTsFetched = onNFTsFetched || (() => {});
 
   const darkMode = useMemo(() => ({
@@ -112,12 +112,55 @@ const MixtapeSearch = ({
     },
  }), [darkTheme, style]);
 
+    const query = useMemo(() => ({
+        limit,
+        start,
+        where,
+        select,
+        dbURL,
+    }), [limit, start, where, select, dbURL]);
+
+    const network = useMemo(() => {
+        return activeNetwork || 'ethereum';
+    }, [activeNetwork]);
+
+    // // new search based on parameter updates
     useEffect(() => {
-        if (activeNetwork) {
-            setNetwork(activeNetwork);
+        let isMounted = true;
+
+        if (lastUsedContractAddress && network && query && isMounted) {
+            setIsProcessing(true);
+            setShowSuggestions(false);
+            console.log('Fetching NFTs...');
+            getMixtapeNFTs(lastUsedContractAddress, network, query)
+                .then((results:any) => {
+                    if (!isMounted) return;
+                    console.log('NFTs fetched!');
+                    if (onNFTsFetched) {
+                        onNFTsFetched(results);
+                    }
+                    setIsProcessing(false);
+                })
+                .catch((e:any) => {
+                    if (!isMounted) return;
+                    if (e instanceof Error) {
+                        console.error(`Error: ${e.message}`);
+                        console.log(`If collection is missing, submit an index request at https://indexer.locatia.app`);
+                    } else {
+                        console.error('Caught an unknown error:', e);
+                    }
+                    setIsProcessing(false);
+                }).finally(() => {
+                    if (!isMounted) return;
+                    setIsProcessing(false);
+                }
+            );
         }
-    }
-    , [activeNetwork]);
+
+        return () => {
+            isMounted = false;
+        };
+    }, [lastUsedContractAddress, network, query, onNFTsFetched]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -131,9 +174,12 @@ const MixtapeSearch = ({
     };
 
     const handleSuggestionClick = (search: string) => {
+        if (!search) return;
         setIsProcessing(true);
         setContractAddress('');
         setShowSuggestions(false);
+        console.log('Setting last used contract address...');
+        setLastUsedContractAddress(search);
         console.log('Fetching NFTs...');
         getMixtapeNFTs(search, network,
                 {

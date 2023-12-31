@@ -1,6 +1,6 @@
 {
   "name": "mixtape-search",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "NFT searchbard for nft-fetcher",
   "license": "MIT",
   "main": "dist/mixtapesearch.js",

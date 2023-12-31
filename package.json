@@ -1,6 +1,6 @@
 {
   "name": "mixtape-search",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "NFT searchbard for nft-fetcher",
   "license": "MIT",
   "main": "dist/mixtapesearch.js",
@@ -20,7 +20,7 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "crypto-browserify": "^3.12.0",
     "multiformats": "^13.0.0",
-    "nft-fetcher": "^1.0.5",
+    "nft-fetcher": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "stream-browserify": "^3.0.0",

@@ -149,6 +149,13 @@ If a collection does not appear it has not been indexed yet. To request a collec
 
 The component supports multiple blockchain networks. The active network can be set using the `activeNetwork` prop. The default network is 'ethereum'.
 
+The following networks are supported:
+- Ethereum: "ethereum"
+- Polygon: "polygon"
+- Arbitrum One: "arbitrum"
+- Fantom Opera: "fantom"
+- Avalanche: "avalanche"
+
 ## Next js configuration
 
 Step 1: Update next.config.js

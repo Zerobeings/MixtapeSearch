@@ -207,8 +207,7 @@ const MixtapeSearch = ({
                 setIsProcessing(false);
             });
     };
-    
-    
+
     useEffect(() => {
         const fetchCollections = async () => {
             // Check cache first
@@ -225,6 +224,12 @@ const MixtapeSearch = ({
                         break;
                     case "polygon":
                         url = "https://lib.locatia.app/poly-directory/directory.json";
+                        break;
+                    case "fantom":
+                        url = "https://lib.locatia.app/ftm-directory/directory.json";
+                        break;
+                    case "avalanche":
+                        url = "https://lib.locatia.app/avax-directory/directory.json";
                         break;
                     default:
                         url = "https://lib.locatia.app/eth-directory/directory.json";
@@ -272,23 +277,50 @@ const MixtapeSearch = ({
 
     
   return (
-    <div>
+    <div className={styles.searchContainer}>
         <div className={`${styles.searchBarContainer} ${classNames.searchBarContainer || ""}`} 
         style={style.searchBarContainer && darkMode ? darkMode.searchBarContainer : style.searchBarContainer}>
-         {network === "ethereum" ? (
+            {network === "ethereum" ? (
                 <img 
                     className={styles.networkImage}
-                    src="https://lib.locatia.app/network-images/eth.png"
+                    src="https://bafybeie3c5fcqjhrfma6wljpwzzldpsttu2lonutagoxwikeslersqzdwe.ipfs.dweb.link/eth.png"
                     alt="ethereum"
                     width={30} 
                     height={30}
                     loading="lazy"
                 />
-            ) : network === "polygon" && (
+            ) : network === "polygon" ? (
                 <img 
                     className={styles.networkImage}
-                    src="https://lib.locatia.app/network-images/matic.png"
+                    src="https://bafybeigzgztdmt3qdt52wuhyrrvpqp5qt4t2uja23wmfhsccqt332ek7da.ipfs.dweb.link/polygon/512.png"
                     alt="polygon"
+                    width={30} 
+                    height={30}
+                    loading="lazy"
+                />
+            ) : network === "fantom" ? (
+                <img 
+                    className={styles.networkImage}
+                    src="https://bafybeigzgztdmt3qdt52wuhyrrvpqp5qt4t2uja23wmfhsccqt332ek7da.ipfs.dweb.link/fantom/512.png"
+                    alt="fantom"
+                    width={30} 
+                    height={30}
+                    loading="lazy"
+                />
+            ) : network === "avalanche" ? (
+                <img 
+                    className={styles.networkImage}
+                    src="https://bafybeigzgztdmt3qdt52wuhyrrvpqp5qt4t2uja23wmfhsccqt332ek7da.ipfs.dweb.link/avalanche/512.png"
+                    alt="avalanche"
+                    width={30} 
+                    height={30}
+                    loading="lazy"
+                />
+            ) : (
+                <img 
+                    className={styles.networkImage}
+                    src="https://bafybeie3c5fcqjhrfma6wljpwzzldpsttu2lonutagoxwikeslersqzdwe.ipfs.dweb.link/eth.png"
+                    alt="ethereum"
                     width={30} 
                     height={30}
                     loading="lazy"
@@ -297,7 +329,7 @@ const MixtapeSearch = ({
             }
             <input
                 style={style.searchBar && darkMode ? darkMode.searchBar : style.searchBar}
-                className={`${network === "ethereum" ? styles.searchBar : styles.searchBarMatic} ${styles.searchBar || ""}`}
+                className={`${styles.searchBar} ${styles.searchBar || ""}`}
                 type="text"
                 value={contractAddress}
                 placeholder="Name/Contract Address"
